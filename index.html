@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한소연 | 초등교사</title>
+<meta name="description" content="대구사수초등학교 교사 한소연의 약력, 강의, 수업 웹앱">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@noonnu/kyobo-handwriting2020-a@0.1.0/index.css">
+<style>
+  :root {
+    --ink: #161616;
+    --text: #2E2E2E;
+    --muted: #767676;
+    --line: #E8E8E8;
+    --bg: #FFFFFF;
+    --soft: #F6F6F4;
+    --accent: #8B5E3C;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Pretendard', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; font-size: 16px; line-height: 1.75; word-break: keep-all; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:hover { color: #5E3D25; }
+  img { display: block; max-width: 100%; }
+
+  .note { position: relative; max-width: 540px; margin: 6px 0 52px; padding: 32px 40px 28px; color: #FBF5EC; border-radius: 3px;
+    background: repeating-linear-gradient(97deg, rgba(255,255,255,.035) 0 2px, transparent 2px 9px), linear-gradient(160deg, #9A6A46, var(--accent) 60%, #7A5133);
+    box-shadow: 0 1px 2px rgba(60,38,22,.18), 0 14px 30px rgba(92,62,39,.22); transform: rotate(-1.2deg); }
+  .note::before { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 26px; transform: translateX(-50%) rotate(2deg); background: rgba(236,224,204,.92); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+  .note::after { content: ""; position: absolute; right: 0; bottom: 0; width: 30px; height: 30px; background: linear-gradient(315deg, #FFFFFF 50%, #6A452B 50%); box-shadow: -2px -2px 4px rgba(0,0,0,.08); }
+  .note blockquote { margin: 0; font-family: "KyoboHandwriting2020A", cursive; font-size: 23px; line-height: 1.6; font-weight: 400; letter-spacing: .01em; }
+  .note cite { display: block; margin-top: 12px; font-style: normal; font-size: 13px; letter-spacing: .06em; color: #EBD9C3; }
+  .page { max-width: 1080px; margin: 0 auto; padding: 96px 32px 72px; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 88px; align-items: start; }
+
+  /* 왼쪽: 사진과 이름 */
+  .profile { position: sticky; top: 56px; }
+  .photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; background: var(--soft); border-bottom: 4px solid var(--accent); }
+  .label { margin: 28px 0 6px; font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--accent); }
+  .name { margin: 0; font-size: 44px; font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+  .role { margin: 10px 0 0; font-size: 16px; color: var(--text); }
+  .name-row { display: flex; align-items: flex-end; gap: 14px; }
+  .sign { display: block; width: 76px; height: auto; margin-bottom: 2px; }
+  .contact { list-style: none; margin: 28px 0 0; padding: 20px 0 0; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 15px; }
+  .contact span { display: inline-block; width: 56px; color: var(--muted); }
+
+  /* 오른쪽: 소개와 약력 */
+  .intro { margin: 0 0 64px; font-size: 18px; line-height: 1.85; color: var(--ink); }
+  .intro .dot { display: inline-block; width: 4px; height: 4px; margin: 0 12px; border-radius: 50%; background: var(--accent); vertical-align: middle; }
+  .sec { margin: 0 0 52px; }
+  .sec h2 { margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid var(--accent); font-size: 15px; font-weight: 700; letter-spacing: .06em; color: var(--accent); }
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 16px; padding: 7px 0; }
+  .rows time { color: var(--accent); font-variant-numeric: tabular-nums; font-size: 15px; padding-top: 1px; }
+  .rows .org { color: var(--muted); }
+  .plain { list-style: none; margin: 0; padding: 0; }
+  .plain li { padding: 7px 0; }
+
+  /* 수업 웹앱 */
+  .apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 28px; }
+  .app img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border: 1px solid var(--line); }
+  .app h3 { margin: 14px 0 2px; font-size: 16px; font-weight: 700; color: var(--ink); }
+  .app p { margin: 0; font-size: 14px; color: var(--muted); }
+  .app a { display: inline-block; margin-top: 6px; font-size: 14px; font-weight: 600; }
+  .app.wide { grid-column: 1 / -1; }
+  .app.wide img { aspect-ratio: 16 / 9; }
+
+  footer { max-width: 1080px; margin: 0 auto; padding: 24px 32px 48px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 880px) {
+    .note { padding: 28px 24px 24px; transform: rotate(-.8deg); }
+    .note blockquote { font-size: 19px; }
+    .page { grid-template-columns: minmax(0, 1fr); gap: 48px; padding: 40px 20px 56px; }
+    .profile { position: static; max-width: 420px; }
+    .name { font-size: 38px; }
+    .intro { font-size: 17px; margin-bottom: 48px; }
+    footer { padding: 24px 20px 40px; }
+  }
+  @media (max-width: 560px) {
+    .rows li { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 8px 0; }
+    .apps { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+  <aside class="profile">
+    <img class="photo" src="img/profile.webp" alt="한소연 선생님 프로필 사진">
+    <p class="label">초등교사</p>
+    <div class="name-row">
+      <h1 class="name">한소연</h1>
+      <img class="sign" src="img/signature.png" alt="한소연 서명">
+    </div>
+    <p class="role">대구사수초등학교 교사</p>
+    <ul class="contact">
+      <li><span>메일</span><a href="mailto:hsy1800@gmail.com">hsy1800@gmail.com</a></li>
+      <li><span>블로그</span><a href="https://blog.naver.com/hsy1800" target="_blank" rel="noopener">blog.naver.com/hsy1800</a></li>
+    </ul>
+  </aside>
+
+  <div>
+    <figure class="note" style="margin-left:0">
+      <blockquote>“세상은 재미있는 곳이란다.<br>우리는 남들에게 이기거나 지려고 태어난 게 아니야.<br>내 몫만큼 즐겁게 살려고 온 것이지”</blockquote>
+      <cite>한상복, 『재미』</cite>
+    </figure>
+
+    <p class="intro">AI·디지털 수업 설계 <span class="dot"></span> 영어 말하기 <span class="dot"></span> 사회정서교육 <span class="dot"></span> 수업 웹앱 개발</p>
+
+    <section class="sec">
+      <h2>학력</h2>
+      <ul class="plain">
+        <li>대구교육대학교 교육대학원 초등영어교육전공 석사과정</li>
+        <li>대구교육대학교 초등교육과 졸업</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>현직</h2>
+      <ul class="plain">
+        <li>대구사수초등학교 교사, 6학년 담임</li>
+        <li>EBS 영어교육방송 활용교사 13기</li>
+        <li>대구창의융합교육원 해설지원단 AI·SW 영역</li>
+        <li>대구 초등 마음교육 연구회(사회정서교육 교사 연구회) 총무</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>강의</h2>
+      <ul class="rows">
+        <li><time>2026</time><div>1급 정교사 자격연수 「행복한 학급을 위한 마음 항해일지」 강사 <span class="org">대구연수원</span></div></li>
+        <li><time>2026</time><div>빅테크와 함께하는 AI·디지털 활용 영어수업 직무연수 강사 <span class="org">대구광역시교육청</span></div></li>
+        <li><time>2026</time><div>다문화교육 전문가 양성(심화과정) 직무연수 강사 <span class="org">대구광역시교육청</span></div></li>
+        <li><time>2026</time><div>새 학기 학급경영 연수 강사 <span class="org">대구연수원, 대구동평초</span></div></li>
+        <li><time>2026</time><div>천재 T셀파 수업 혁신 연구대회 수상자 릴레이 특강 강사 <span class="org">천재교육</span></div></li>
+        <li><time>2026</time><div>디지털새싹 캠프 교내 운영과 강사 2회, 1~6학년 42명 <span class="org">한국과학창의재단</span></div></li>
+        <li><time>2025~2026</time><div>온샘배움터 정착 연수 강사 다수 <span class="org">대구미래교육연구원</span></div></li>
+        <li><time>2025~2026</time><div>온샘화상 영어 말하기 수업 운영교사, 3개 과정 <span class="org">대구미래교육연구원</span></div></li>
+        <li><time>2025~2026</time><div>초등 찾아가는 SW·AI 교육 역량강화 연수 강사 다수 <span class="org">대구광역시교육청</span></div></li>
+        <li><time>2025</time><div>학부모 AI 디지털교과서 이해 교육 강사, 학부모 38명 <span class="org">대구삼영초</span></div></li>
+        <li><time>2024~2025</time><div>찾아가는 학교 컨설팅 코디네이터와 강사 <span class="org">한국과학창의재단</span></div></li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>경력</h2>
+      <ul class="rows">
+        <li><time>2026</time><div>스쿨포유 원격수업 콘텐츠 강의교사, 영어 <span class="org">한국교육개발원</span></div></li>
+        <li><time>2026</time><div>과학관 AI 교육 교사연구회 연구자 <span class="org">국립중앙과학관</span></div></li>
+        <li><time>2026</time><div>이주배경학생 통합지원 챗봇 개발 협의회 위원 <span class="org">대구광역시교육청</span></div></li>
+        <li><time>2026</time><div>초등 사회정서교육 검토위원 <span class="org">한국교육개발원</span></div></li>
+        <li><time>2025</time><div>대구e-스터디 미래형 과정 TF <span class="org">대구미래교육연구원</span></div></li>
+        <li><time>2025~</time><div>대구사수초등학교 교사</div></li>
+        <li><time>2024</time><div>스쿨포유 원격수업 콘텐츠 강의교사, 과학 <span class="org">한국교육개발원</span></div></li>
+        <li><time>2023~2026</time><div>EBS 영어교육방송 활용교사 10~13기 <span class="org">한국교육방송공사</span></div></li>
+        <li><time>2022~2025</time><div>충청남도 초등교사, 보령대남초 등</div></li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>수상</h2>
+      <ul class="rows">
+        <li><time>2026</time><div>2026년 EBSe·AI 펭톡 활용·확산 공모전 대상 <span class="org">한국교육방송공사</span></div></li>
+        <li><time>2025</time><div>2025 AI 펭톡 활용수업 우수사례 공모전 최우수상 <span class="org">한국교육방송공사 사장</span></div></li>
+        <li><time>2025</time><div>2025 천재 T셀파 수업 혁신 연구대회 우수상 <span class="org">천재교육</span></div></li>
+        <li><time>2023</time><div>교육장 표창, 환경교육 유공 <span class="org">충청남도보령교육지원청</span></div></li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>자격과 연수</h2>
+      <ul class="rows">
+        <li><time>2026</time><div>Google 공인 트레이너 <span class="org">Google for Education</span></div></li>
+        <li><time>2024</time><div>교실혁명 선도교사 양성 연수 이수 <span class="org">한국교육학술정보원</span></div></li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>연구와 집필</h2>
+      <ul class="rows">
+        <li><time>2026</time><div>석사학위논문 「초등 영어 읽기 수업에서 나타나는 읽기 조절 책임의 이양 과정」</div></li>
+        <li><time>2026</time><div>사회정서교육 프로그램 17차시 원고와 PPT 개발 <span class="org">교육부 사업</span></div></li>
+        <li><time>2026</time><div>과학관 연계 AI 수업 「기상예측 UNLOCK」 4차시 개발 <span class="org">국립중앙과학관</span></div></li>
+        <li><time>2026</time><div>T셀파 국어 6-1 서술형 평가문항 <span class="org">천재교육</span></div></li>
+        <li><time>2024</time><div>국어 평가문항 개발 <span class="org">폭스에듀</span></div></li>
+        <li><time>2024</time><div>수학 강의영상 100편 개발 <span class="org">충남에듀테크연구회</span></div></li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>수업 웹앱</h2>
+      <div class="apps">
+        <figure class="app wide" style="margin:0">
+          <img src="img/app-haedong.jpg" alt="해동성국 교실판 학생 화면">
+          <h3>해동성국 교실판</h3>
+          <p>우리 반 교실 TV와 학생 패드에 함께 띄우는 학급 교실판. 시간표, 알림장, 급식표, 1인 1역과 수업 루틴 체크. 우리 반 전용이라 화면만 공개.</p>
+        </figure>
+        <figure class="app" style="margin:0">
+          <img src="img/app-sun.jpg" alt="계절과 태양 탐구실 첫 화면">
+          <h3>계절과 태양 탐구실</h3>
+          <p>6학년 과학, 계절의 변화 5~6차시</p>
+          <a href="https://hsy1800-create.github.io/sun-season-lab/" target="_blank" rel="noopener">학생용 열기</a>
+        </figure>
+        <figure class="app" style="margin:0">
+          <img src="img/app-season.jpg" alt="계절 탐사대 23.5 첫 화면">
+          <h3>계절 탐사대 23.5</h3>
+          <p>6학년 과학, 계절의 변화 8~9차시</p>
+          <a href="https://hsy1800-create.github.io/season-quest/" target="_blank" rel="noopener">학생용 열기</a>
+        </figure>
+        <figure class="app" style="margin:0">
+          <img src="img/app-debut.jpg" alt="데뷔 프로젝트 첫 화면">
+          <h3>데뷔 프로젝트: 기획사를 살려라</h3>
+          <p>6학년 사회, 우리나라 경제의 특징 1~7차시</p>
+          <a href="https://hsy1800-create.github.io/debut-project/" target="_blank" rel="noopener">학생용 열기</a>
+        </figure>
+        <figure class="app" style="margin:0">
+          <img src="img/app-english.jpg" alt="영어 놀이터 첫 화면">
+          <h3>영어 놀이터</h3>
+          <p>4학년 영어, 6단원 Where's My Cap?</p>
+          <a href="https://hsy1800-create.github.io/english-playground/" target="_blank" rel="noopener">학생용 열기</a>
+        </figure>
+        <figure class="app" style="margin:0">
+          <img src="img/app-eco.jpg" alt="생태계 탐정 게임 첫 화면">
+          <h3>생태계 탐정 게임</h3>
+          <p>6학년 과학, 영재 공개수업. 공개 링크 준비 중</p>
+        </figure>
+        <figure class="app" style="margin:0">
+          <img src="img/lecture-maeum.jpg" alt="마음 항해 일지 강의 첫 슬라이드">
+          <h3>행복한 학급을 위한 마음 항해일지</h3>
+          <p>1급 정교사 자격연수 강의 자료, 2026</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>강의 주제</h2>
+      <ul class="plain">
+        <li>온샘배움터와 웨일 클래스로 여는 블렌디드 수업</li>
+        <li>AI·디지털 수업 설계와 교실 에듀테크</li>
+        <li>AI 펭톡과 EBSe로 키우는 영어 말하기</li>
+        <li>생성형 AI로 다문화학생 맞춤 지원</li>
+        <li>학급경영과 사회정서교육</li>
+        <li>학부모를 위한 AI 디지털교과서 이해</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 한소연</span>
+  <span>2026. 11. 고침</span>
+</footer>
+
+</body>
+</html>
