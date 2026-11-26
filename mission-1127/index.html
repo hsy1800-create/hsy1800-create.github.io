@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f6f4ef">
+<title>11/27 금요일 체크리스트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#f6f4ef; --card:#ffffff; --ink:#1f2328; --sub:#5d6670; --line:#e4e0d6;
+    --accent:#2f6b4f; --accent-soft:#e3efe8; --now:#c8501e; --now-soft:#fdeee6;
+    --warn:#a33a3a; --warn-soft:#f8e9e9;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    font-size:16px;line-height:1.55;padding-bottom:40px;word-break:keep-all;overflow-wrap:anywhere}
+  .wrap{max-width:640px;margin:0 auto;padding:0 14px}
+
+  header{position:sticky;top:0;z-index:10;background:var(--bg);padding:14px 0 10px;border-bottom:1px solid var(--line)}
+  .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  h1{font-size:20px;margin:0;font-weight:800;letter-spacing:-0.3px}
+  .clock{font-size:15px;color:var(--sub);font-variant-numeric:tabular-nums}
+  .bar{height:8px;background:var(--line);border-radius:99px;margin-top:10px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .25s}
+  .count{font-size:13px;color:var(--sub);margin-top:6px}
+  .nowline{margin-top:8px;font-size:14px;background:var(--now-soft);color:var(--now);border-radius:10px;padding:7px 10px;font-weight:600;display:none}
+  .nowline.on{display:block}
+
+  h2{font-size:17px;margin:26px 0 10px;font-weight:800;display:flex;justify-content:space-between;align-items:baseline}
+  h2 small{font-size:13px;color:var(--sub);font-weight:500}
+
+  .goals{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .goals span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 11px;font-size:13.5px}
+
+  .item{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+  .item.now{border-color:var(--now);box-shadow:0 0 0 2px var(--now-soft)}
+  .row{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+  .box{flex:0 0 26px;height:26px;border:2px solid #b9b3a5;border-radius:8px;display:grid;place-items:center;margin-top:1px;transition:all .15s}
+  .box svg{width:16px;height:16px;opacity:0}
+  .done .box{background:var(--accent);border-color:var(--accent)}
+  .done .box svg{opacity:1}
+  .time{font-size:13px;color:var(--sub);font-weight:600;font-variant-numeric:tabular-nums}
+  .now .time{color:var(--now)}
+  .tag{display:inline-block;font-size:11.5px;background:var(--now);color:#fff;border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:1px}
+  .title{font-weight:700;font-size:16px}
+  .desc{font-size:14px;color:var(--sub);margin-top:2px}
+  .done .title{text-decoration:line-through;color:#8a8f94}
+  .done .desc{color:#a0a4a8}
+
+  details{border-top:1px dashed var(--line)}
+  summary{list-style:none;padding:10px 14px 10px 52px;font-size:14px;font-weight:700;color:var(--accent);cursor:pointer}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"▸ ";}
+  details[open] summary::before{content:"▾ ";}
+  .script{padding:0 14px 14px 52px;font-size:15px}
+  .script p{margin:0 0 8px}
+  .script .tip{font-size:13.5px;background:var(--accent-soft);border-radius:10px;padding:8px 10px;color:#24513c;margin-top:6px}
+
+  .simple{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .simple .row{padding:11px 14px;border-bottom:1px solid var(--line)}
+  .simple .row:last-child{border-bottom:none}
+  .simple .title{font-weight:600;font-size:15px}
+
+  .note{background:var(--warn-soft);color:var(--warn);border-radius:12px;padding:10px 12px;font-size:14px;margin:10px 0 0;font-weight:600}
+
+  .cards{display:grid;gap:8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .card b{display:block;font-size:15px;margin-bottom:3px}
+  .card div{font-size:14px;color:var(--sub)}
+  .card.good{border-left:5px solid var(--accent)}
+  .card.mid{border-left:5px solid #c9a227}
+  .card.bad{border-left:5px solid var(--warn)}
+
+  .two{display:grid;gap:8px}
+  .two .card ul{margin:4px 0 0;padding-left:18px;font-size:14.5px}
+  .two .card li{margin-bottom:3px}
+  .no b{color:var(--warn)}
+  .yes b{color:var(--accent)}
+
+  .end{text-align:center;color:var(--sub);font-size:14px;margin:26px 0 10px}
+  .reset{display:block;margin:10px auto 0;background:none;border:1px solid var(--line);color:var(--sub);border-radius:10px;padding:8px 14px;font-size:13px;font-family:inherit}
+  .reset.arm{border-color:var(--warn);color:var(--warn)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <h1>11/27 (금) 체크리스트</h1>
+      <div class="clock" id="clock"></div>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="count" id="count"></div>
+    <div class="nowline" id="nowline"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="goals">
+    <span>EBS 대상 유지</span><span>제주 출장 일정 유지</span><span>기간제 선생님 일정 유지</span><span>국외연수 자격 유지</span><span>사전연수 대체 이수 방법 확보</span>
+  </div>
+
+  <h2>타임테이블 <small id="c-time"></small></h2>
+  <div id="timeline"></div>
+
+  <h2>07:00 챙길 증빙자료 <small id="c-docs"></small></h2>
+  <div class="simple" id="docs"></div>
+
+  <h2>장학사님께 확인할 것 <small id="c-ask"></small></h2>
+  <div class="simple" id="ask"></div>
+  <div class="note">결강신청서, 불참 사유서는 미리 내지 않기. 초안만 들고 있다가 교육청이 말하는 양식으로 제출.</div>
+
+  <h2>교육청 답변별 대응</h2>
+  <div class="cards">
+    <div class="card good"><b>A. 대체 이수 가능</b><div>사유서, 증빙 제출 → 학교 내부 결재 → 안내대로 대체 이수</div></div>
+    <div class="card mid"><b>B. 내부 검토 필요</b><div>자료 제출하고 결과 나오는 날짜 확인. 어느 쪽도 먼저 포기하지 않기</div></div>
+    <div class="card bad"><b>C. 대체 이수 불가</b><div>예외 인정 가능성, 근거 규정 다시 확인. 교감, 교장 선생님께 보고하고 학교 차원 협의 가능한지 확인</div></div>
+    <div class="card bad"><b>D. 연수포기원 제출 요구</b><div>그 자리에서 포기 의사 밝히지 않기. "관리자와 상의 후 말씀드리겠습니다" + 제출 기한 확인</div></div>
+  </div>
+
+  <h2>말할 때 원칙</h2>
+  <div class="two">
+    <div class="card no"><b>하지 않을 말</b>
+      <ul><li>제가 너무 큰 실수를 했습니다</li><li>제가 공문을 제대로 못 봐서 일이 이렇게 됐습니다</li><li>안 되면 제가 그냥 포기하겠습니다</li></ul>
+    </div>
+    <div class="card yes"><b>사실만 차례대로</b>
+      <ul><li>학교장 결재가 끝난 공식 출장</li><li>대체 인력 확보 완료</li><li>사전연수 후보 날짜 두 개 모두 출장과 겹침</li><li>대체 이수할 의지 있음</li></ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:8px"><div>공문 늦게 본 부분은 물어보시면 사실대로만. 책임을 혼자 다 떠안을 필요 없음.</div></div>
+
+  <p class="end">7시부터는 자책 모드 말고 문제 해결 모드 🍀</p>
+  <button class="reset" id="reset">체크 전부 지우기</button>
+</main>
+
+<script>
+(function(){
+  var KEY = "mission-1127-v1";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { state = {}; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
+
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+  var S_VICE = [
+    "교감 선생님, 다음 주 출장 기간 수업은 진도표, 수업 자료, 학습지까지 준비해 두었습니다. 대체 선생님 신경 써 주셔서 감사합니다.",
+    "한 가지 상의드릴 일이 있어서 왔습니다.",
+    "지난번 결재해 주신 공무국외연수에 대상자로 선발되었는데, 사전 집합연수 일정이 EBS 제주 출장과 겹칩니다.",
+    "교육청이 안내한 후보 날짜 두 개가 모두 출장 기간이고, EBS 측에서는 시상식에 불참하면 대상 수상에 문제가 생길 수 있다고 안내받았습니다.",
+    "출장 결재와 대체 인력 확보는 끝난 상황이라, 교육청에 사전연수 대체 이수 방법을 문의해 보려고 합니다.",
+    "어떻게 처리하면 좋을지 교감 선생님 의견을 여쭙고 싶습니다."
+  ];
+  var S_PRIN = [
+    "교장 선생님, 상의드릴 일이 있어 찾아왔습니다.",
+    "승인해 주신 EBS 대상 시상식 출장과 공무국외연수 사전 집합연수 일정이 겹치게 되었습니다.",
+    "EBS 측은 시상식 참석이 필수라는 입장이고, 교육청이 안내한 사전연수 후보 날짜도 모두 출장 기간과 겹칩니다.",
+    "두 일정 모두 참여할 수 있도록 교육청에 사전연수 대체 이수 가능 여부를 문의해 보려고 합니다.",
+    "필요하면 학교 차원에서 협조 요청을 하거나, 불참 사유서를 공문으로 제출해도 괜찮을지 여쭙고 싶습니다."
+  ];
+  var S_SUPER = [
+    "장학사님, 안녕하세요. 사수초등학교 한소연입니다.",
+    "공무국외연수 사전 집합연수 관련해서 여쭙고 싶은 것이 있어 연락드렸습니다.",
+    "이번 EBS 공모전에서 대상을 받게 되어 11. 30.~12. 2. 제주 시상식과 연수에 참석할 예정입니다.",
+    "학교장 출장 결재와 담임 대체 인력 확보까지 끝난 상황에서 사전연수 일정이 겹치게 되었습니다. 안내해 주신 11. 30.과 12. 1. 두 날짜가 모두 출장 기간이고, EBS 측도 시상식 참석이 필수라고 안내했습니다.",
+    "국외연수에도 꼭 참여하고 싶어서, 사전연수를 과제나 개별 연수 같은 방법으로 대체 이수할 수 있는지 여쭙고 싶습니다.",
+    "필요한 증빙자료와 사유서는 제출하겠습니다. 어떤 양식으로 언제까지 내면 되는지 알려 주시면 그대로 준비하겠습니다.",
+    "바쁘신데 확인해 주셔서 감사합니다."
+  ];
+
+  var timeline = [
+    {id:"t1", s:"07:00", e:"07:20", t:"학교 도착, 증빙자료 정리", d:"EBS 공문, 수상 안내문, 복무 결재 내역, 국외연수 공문, 팀장님 메시지 (아래 목록)"},
+    {id:"t2", s:"07:20", e:"07:35", t:"다음 주 수업 준비 최종 확인", d:"진도표, 학습지, 수업 자료, 대체 선생님께 전할 것 정리"},
+    {id:"t3", s:"07:35", e:"07:50", t:"불참 사유서 초안 준비", d:"일정이 겹친 경위와 대체 이수 요청 내용. 아직 보내지 않기"},
+    {id:"t4", s:"07:50", e:"08:05", t:"교감 선생님께 상의", d:"수업 준비 끝냈다는 말부터. 교육청에 어떻게 물을지 조언 요청",
+      script:S_VICE, tip:"교감 선생님이 교육청에 직접 전화해 주신다고 하면 감사하다고 하고 맡기기"},
+    {id:"t5", s:"08:05", e:"08:20", t:"교장 선생님께 상의", d:"교감 선생님과 같이 가면 가장 좋음. 학교 차원 협조 요청",
+      script:S_PRIN},
+    {id:"t6", s:"08:20", e:"08:40", t:"학급, 아침 수업 준비", d:"아이들 맞이하기. 평소처럼"},
+    {id:"t7", s:"08:50", e:"10:30", label:"09:00 전후", t:"교육청 장학사님께 문의", d:"수업 없는 시간에. 교감 선생님이 대신 전화하시면 따로 연락하지 않기",
+      script:S_SUPER, tip:"통화 중에 아래 '장학사님께 확인할 것' 다섯 가지 체크하기"},
+    {id:"t8", s:"10:30", e:"12:00", t:"교육청 답변 확인", d:"대체 이수 가능 여부, 제출 서류, 학교장 확인이나 공문 필요 여부"},
+    {id:"t9", s:"12:00", e:"13:00", t:"필요 서류 보완", d:"교육청이 말한 양식, 절차대로 준비"},
+    {id:"t10", s:"13:00", e:"15:00", t:"학교 내부 결재, 공문 발송", d:"교육청이 요청한 경우에만 공식 제출"},
+    {id:"t11", s:"15:00", e:"16:30", t:"진행 상황 마무리", d:"교감 선생님께 결과 공유. 필요하면 EBS에도 확정 일정 전달"}
+  ];
+  var docs = [
+    "EBS 제주 출장 공문","EBS 대상 수상 안내문","기존 제주 연수 불참 시 부상 관련 안내문","학교장 출장 복무 결재 내역",
+    "담임 대체 인력 확보 내역","공무국외연수 대상자 선정 공문","11월 30일, 12월 1일 사전연수 후보 일정 안내",
+    "최종 사전 집합연수 공문","EBS 팀장님의 시상식 필수 참석 안내","사전연수 불참 사유서 초안"
+  ];
+  var ask = [
+    "사전연수 대체 이수가 가능한지","내야 할 서류 이름과 양식 (결강신청서? 불참 사유서?)","제출 기한",
+    "학교장 확인이나 공문이 필요한지","검토가 필요하면 결과가 나오는 날짜"
+  ];
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  function rowHTML(id, inner){
+    return '<div class="row" data-id="'+id+'"><span class="box">'+CHECK+'</span><div>'+inner+'</div></div>';
+  }
+
+  var tl = document.getElementById("timeline");
+  tl.innerHTML = timeline.map(function(x){
+    var when = x.label || (x.s + "~" + x.e);
+    var h = '<div class="item" id="item-'+x.id+'">';
+    h += rowHTML(x.id, '<div class="time">'+esc(when)+'<span class="tag" style="display:none">지금</span></div><div class="title">'+esc(x.t)+'</div><div class="desc">'+esc(x.d)+'</div>');
+    if (x.script){
+      h += '<details><summary>말씀드릴 내용</summary><div class="script">' +
+        x.script.map(function(p){ return '<p>'+esc(p)+'</p>'; }).join("") +
+        (x.tip ? '<div class="tip">'+esc(x.tip)+'</div>' : '') + '</div></details>';
+    }
+    return h + '</div>';
+  }).join("");
+
+  document.getElementById("docs").innerHTML = docs.map(function(t,i){ return rowHTML("d"+i, '<div class="title">'+esc(t)+'</div>'); }).join("");
+  document.getElementById("ask").innerHTML = ask.map(function(t,i){ return rowHTML("a"+i, '<div class="title">'+esc(t)+'</div>'); }).join("");
+
+  function render(){
+    var rows = document.querySelectorAll(".row");
+    for (var i=0;i<rows.length;i++){
+      var id = rows[i].getAttribute("data-id");
+      var target = rows[i].closest(".item") || rows[i];
+      if (state[id]) target.classList.add("done"); else target.classList.remove("done");
+    }
+    var tDone = timeline.filter(function(x){ return state[x.id]; }).length;
+    var dDone = docs.filter(function(_,i){ return state["d"+i]; }).length;
+    var aDone = ask.filter(function(_,i){ return state["a"+i]; }).length;
+    document.getElementById("c-time").textContent = tDone + " / " + timeline.length;
+    document.getElementById("c-docs").textContent = dDone + " / " + docs.length;
+    document.getElementById("c-ask").textContent = aDone + " / " + ask.length;
+    document.getElementById("count").textContent = "타임테이블 " + tDone + " / " + timeline.length + " 완료";
+    document.getElementById("bar").style.width = (tDone / timeline.length * 100) + "%";
+  }
+
+  document.addEventListener("click", function(ev){
+    var row = ev.target.closest(".row");
+    if (!row) return;
+    var id = row.getAttribute("data-id");
+    state[id] = !state[id];
+    if (!state[id]) delete state[id];
+    save(); render(); tick();
+  });
+
+  function seoulNow(){
+    try {
+      var parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Seoul",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+      var h = +parts.find(function(p){return p.type==="hour";}).value, m = +parts.find(function(p){return p.type==="minute";}).value;
+      return {h:h%24, m:m};
+    } catch(e){ var d = new Date(); return {h:d.getHours(), m:d.getMinutes()}; }
+  }
+  function toMin(s){ var a = s.split(":"); return (+a[0])*60 + (+a[1]); }
+
+  function tick(){
+    var n = seoulNow(), now = n.h*60 + n.m;
+    document.getElementById("clock").textContent = (n.h<10?"0":"")+n.h+":"+(n.m<10?"0":"")+n.m;
+    var cur = null;
+    timeline.forEach(function(x){
+      var el = document.getElementById("item-"+x.id), tag = el.querySelector(".tag");
+      var on = now >= toMin(x.s) && now < toMin(x.e);
+      el.classList.toggle("now", on);
+      tag.style.display = on ? "inline-block" : "none";
+      if (on) cur = x;
+    });
+    var nl = document.getElementById("nowline");
+    if (cur && !state[cur.id]) { nl.textContent = "지금: " + cur.t; nl.classList.add("on"); }
+    else {
+      var next = timeline.filter(function(x){ return !state[x.id] && toMin(x.s) > now; })[0];
+      if (next && now >= 6*60 && now < 17*60) { nl.textContent = "다음: " + (next.label || next.s) + " " + next.t; nl.classList.add("on"); }
+      else nl.classList.remove("on");
+    }
+  }
+
+  var resetBtn = document.getElementById("reset"), armed = false, armTimer;
+  resetBtn.addEventListener("click", function(){
+    if (!armed){ armed = true; resetBtn.classList.add("arm"); resetBtn.textContent = "한 번 더 누르면 전부 지워져요";
+      armTimer = setTimeout(function(){ armed=false; resetBtn.classList.remove("arm"); resetBtn.textContent="체크 전부 지우기"; }, 3000); return; }
+    clearTimeout(armTimer); state = {}; save(); render(); tick();
+    armed = false; resetBtn.classList.remove("arm"); resetBtn.textContent = "체크 전부 지우기";
+  });
+
+  render(); tick(); setInterval(tick, 30000);
+})();
+</script>
+</body>
+</html>
